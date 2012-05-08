@@ -1,0 +1,13 @@
+@(guessForm: Form[Int], result: modules.GuessResult)
+
+@import helper._
+
+@main("Guess the number!") {
+    
+    <h1>Play guess the number here...</h1>
+    You guessed @result.number, and @result.message
+    @helper.form(action = routes.Application.guess) {
+    	@helper.inputText(guessForm("guess"), '_label -> "Guess the number.")
+    	<input type="submit" value="guess" />
+    }
+}
