@@ -1,16 +1,15 @@
 package controllers
 
 import modules.GuessResult
-
 import play.api._
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
 
 object Application extends Controller {
-  
+
   val form = Form("guess" -> number(min=0, max=9));
-  val correctGuess = 9
+  val correctGuess = GuessResult.randomNumber()
   
   def index = Action {
     Ok(views.html.index("din tur kajsa"))

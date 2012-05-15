@@ -1,5 +1,7 @@
 package modules
 
+import scala.util.Random
+
 abstract class GuessResult() {
   def number: Int
   def message: String
@@ -18,4 +20,5 @@ object GuessResult {
     case n if n == correctGuess => CorrectGuess(n)
     case n                      => WrongGuess(n)
   }
+  def randomNumber() = Random.nextInt(10)
 }
